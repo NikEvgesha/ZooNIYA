@@ -73,4 +73,8 @@ crashlytics-build.properties
 *.vsconfig
 [Ll]ibrary/
 [Ll]ogs/
-UserSettings/
+[Uu]serSettings/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]ilds/
