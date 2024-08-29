@@ -20,9 +20,7 @@ public class CameraController : MonoBehaviour
     
     void Start()
     {
-        _screenPoints = screenContainer.GetScreenList();
-        
-        Debug.Log("Screen count: " + _screenPoints.Count);
+
     }
 
     private void OnEnable()

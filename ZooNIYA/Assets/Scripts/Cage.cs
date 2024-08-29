@@ -1,27 +1,30 @@
 using System;
 using UnityEngine;
+using static Enums;
 
 public class Cage : MonoBehaviour
 {
-    public enum CageState
-    {
-        Purchased,
-        NotPurchased
-    }
 
     //public Action CagePurchased;
 
     private const int _basePrice = 100;
     [SerializeField] private CageBuyUI _buyUI;
     [SerializeField] private CageCore _core;
+    [SerializeField] private AnimalContainer _animalContainer;
+    [SerializeField] private ImprovementContainer _improvementlContainer;
 
     private CageState _state = CageState.NotPurchased;
     private int _price = 0;
-    public Cage(int price) 
+    private int _id;
+
+/*    public Cage(int price, int id) 
     {
+        _id = id;
+        _price = id * _basePrice;
+        _buyUI.SetPrice(_price);
         _price = price;
         _state = CageState.NotPurchased;
-    }
+    }*/
 
     private void Awake()
     {
@@ -33,7 +36,20 @@ public class Cage : MonoBehaviour
         return _price;
     }
 
-    public void SetPrice(int cageCount)
+    public int GetID()
+    {
+        return _id;
+    }
+
+    public void InitCage(int id)
+    {
+        _id = id;
+        _price = id * _basePrice;
+        _buyUI.SetPrice(_price);
+    }
+
+
+    private void SetPrice(int cageCount)
     {
         _price = cageCount * _basePrice;
         _buyUI.SetPrice(_price);
@@ -56,6 +72,11 @@ public class Cage : MonoBehaviour
             // Что-то где-то подсветить
         }
         
+    }
+
+    public void onMarketButtonClick()
+    {
+
     }
 
 }

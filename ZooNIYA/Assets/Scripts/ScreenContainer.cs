@@ -17,6 +17,7 @@ public class ScreenContainer : MonoBehaviour
         {
             _screens.Add(screen);
         }
+        NewScreenAdd?.Invoke();
     }
 
     private void OnEnable()
@@ -40,7 +41,7 @@ public class ScreenContainer : MonoBehaviour
         if (newScreen == null) Debug.Log("Screen wasn't instantiated!");
         newScreen.transform.SetParent(this.transform);
         _screens.Add(newScreen);
-        newScreen.GetComponentInChildren<Cage>().SetPrice(_screens.Count-1);
+        newScreen.GetComponentInChildren<Cage>().InitCage(_screens.Count-1);
         NewScreenAdd?.Invoke();
     }
 
